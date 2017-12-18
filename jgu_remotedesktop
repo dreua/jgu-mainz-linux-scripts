@@ -1,0 +1,16 @@
+#!/bin/bash
+# before use:
+# set $JGU_USER here or in your .bashrc (e.g. export JGU_USER=yourusername)
+# setup password with: secret-tool store --label "forRdesktop" user "$JGU_USER" domain "uni-mainz.de" (replace $JGU_USER with your jgu username)
+
+nohup secret-tool lookup user "$JGU_USER" domain "uni-mainz.de" |  # get the password and pipe it to rdesktop
+rdesktop rds.zdv.uni-mainz.de \
+-u $JGU_USER@uni-mainz.de \
+-p - `# get password from stdin` \
+-k de `# set keymap to de` \
+-g 1366x768 `# size of rds window` \
+-r disk:cursem=$HOME/aktuellesSemester `# Optional: include your "aktuellesSemester" directory as disk "cursem" in remote machine for data transver.` \
+-r disk:uni=$HOME/uni \
+&> ~/.local/log/rdesktop.log &
+
+# warning: 'disk:' names are truncated to 7 chars

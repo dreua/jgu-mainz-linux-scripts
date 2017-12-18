@@ -9,7 +9,7 @@ rdesktop rds.zdv.uni-mainz.de \
 -p - `# get password from stdin` \
 -k de `# set keymap to de` \
 -g 1366x768 `# size of rds window` \
--r disk:cursem=$HOME/aktuellesSemester `# Optional: include your "aktuellesSemester" directory as disk "cursem" in remote machine for data transver.` \
+-r disk:cursem=$HOME/aktuellesSemester `# Optional: include your "aktuellesSemester" directory as disk "cursem" in remote machine for data transfer.` \
 -r disk:uni=$HOME/uni \
 &> ~/.local/log/rdesktop.log &
 

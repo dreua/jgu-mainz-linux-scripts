@@ -1,0 +1,17 @@
+#!/bin/sh
+# remember arguments (should be python3 file from students)
+export F=$@
+
+# define function to run the python script easyly just with the "a" command
+function a() {
+	python3 "$F"
+}
+
+# run it once
+a
+
+# make it available for re-running if needed
+export -f a
+
+# run bash (you can use the a command now to re-run the script
+bash

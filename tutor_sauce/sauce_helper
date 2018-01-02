@@ -1,0 +1,12 @@
+#!/bin/sh
+# I put this in my download directory so if I download a student's file
+# it automatically opens a new terminal and runs it in there. 
+
+# this uses the watchmedo library to monitor for new files
+# install watchmedo python library: https://github.com/gorakhargosh/watchdog#installation
+
+watchmedo shell-command \
+	--patterns="*.py;" \
+	--command='geany "${watch_src_path}"' \
+	.
+#	--command='gnome-terminal -- ./sauce_helper_instance "${watch_src_path}"' \

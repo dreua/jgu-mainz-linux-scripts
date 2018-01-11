@@ -7,6 +7,10 @@
 
 watchmedo shell-command \
 	--patterns="*.py;" \
-	--command='geany "${watch_src_path}"' \
+	--command='gnome-terminal -- ./sauce_helper_instance "${watch_src_path}"' \
 	.
-#	--command='gnome-terminal -- ./sauce_helper_instance "${watch_src_path}"' \
+	
+# replace the "command" line above with this to open file in editor instead
+# make sure to leave the line with the . at the end!
+
+#	--command='geany "${watch_src_path}"' \

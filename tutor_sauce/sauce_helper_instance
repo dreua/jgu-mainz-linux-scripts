@@ -1,10 +1,21 @@
-#!/bin/sh
+#!/bin/bash
 # remember arguments (should be python3 file from students)
 export F=$@
+
+if [[ $F =~ \.part$ ]]; then # ignore .part files created by firefox 
+	exit
+fi
+
+# TODO ignore every second call (file is usually edited twice by firefox)
 
 # define function to run the python script easyly just with the "a" command
 function a() {
 	python3 "$F"
+}
+
+#define function to open the file in editor
+function g() {
+	nohup geany $@ &> /dev/null &
 }
 
 # run it once
@@ -12,6 +23,7 @@ a
 
 # make it available for re-running if needed
 export -f a
+export -f g
 
-# run bash (you can use the a command now to re-run the script
+# run bash (so you can use the a commands or do whatever you want with bash)
 bash

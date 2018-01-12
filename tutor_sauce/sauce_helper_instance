@@ -15,7 +15,7 @@ function a() {
 
 #define function to open the file in editor
 function g() {
-	nohup geany $@ &> /dev/null &
+	nohup geany $F &> /dev/null &
 }
 
 # run it once
